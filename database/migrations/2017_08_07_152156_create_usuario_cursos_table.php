@@ -20,7 +20,6 @@ class CreateUsuarioCursosTable extends Migration
             $table->boolean('aprovado')->default(false);
             $table->integer('avaliacao')->nullable();
             $table->text('comentario')->nullable();
-            $table->primary(['user_id', 'curso_id']);
             $table->timestamps();
         });
     }
