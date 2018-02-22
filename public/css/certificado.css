@@ -1,0 +1,30 @@
+body {
+	text-align: center;
+	padding-top: 30px;
+}
+
+.moldura {
+	width: 950px;
+	height: 672px;
+	border: 2px dashed #848484;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 50px;
+	-webkit-print-color-adjust:exact;  
+}
+
+h3{
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #358640;
+	font-size: 40px;
+}
+
+h4 {
+	font-weight: bold;
+}
+.titulo {
+	font-family: 'Cinzel', serif;
+	font-size: 60px;
+	margin-top: 40px;
+	margin-bottom: 50px;
+}
