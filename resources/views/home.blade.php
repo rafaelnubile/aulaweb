@@ -12,7 +12,7 @@
 
                 @if(count($user->cursos) <= 0)
                     <div class="cursoStatus">
-                        <h3>Matricule-se a um curso e bons estudos.</h3>                       
+                        <h3>Matricule-se em um curso e bons estudos.</h3>                       
                     </div>                    
                 @else
                     @foreach($user->cursos as $cursoAluno)

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Curso;
 use App\AlunoAula;
+use App\UsuarioCurso;
 
 class AdmAlunoController extends Controller
 {
@@ -20,10 +21,13 @@ class AdmAlunoController extends Controller
     	$user->load('cursos.unidades.exercicios');
 
     	foreach($user->cursos as $curso) {
-    		$curso->dadosAulasAssistidas = $user->dadosAulasAssistidas($curso);
-    		//return $curso->calcularNota($user);
+    		$curso->dadosAulasAssistidas = $user->dadosAulasAssistidas($curso);         
+    		$curso->aprovado = UsuarioCurso::where([
+                ['user_id', $user->id],
+                ['curso_id', $curso->id]
+            ])->first();
     	}
-    	//return $user;
+        
     	return view('adm.aluno.aluno', compact('user'));
     }
 

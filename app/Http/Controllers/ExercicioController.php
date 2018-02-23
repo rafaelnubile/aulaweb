@@ -30,7 +30,10 @@ class ExercicioController extends Controller
     	$usuario = Auth::user();
         $alunoRespostas = [];
         for($i = 0; $i < count($exercicio->questaos); $i++) {
-            $alunoResposta = AlunoResposta::where('questao_id', $exercicio->questaos[$i]->id)->first();
+            $alunoResposta = AlunoResposta::where([
+                ['questao_id', $exercicio->questaos[$i]->id],
+                ['user_id', $usuario->id]
+            ])->first();
             if(!empty($alunoResposta)) {
                 $exercicio->questaos[$i]->respostaAluno = $alunoResposta->resposta_id;
             } else {
@@ -62,7 +65,10 @@ class ExercicioController extends Controller
                     $numeroDeRespostasCorretas++;
                 }
 
-                $alunoResposta = AlunoResposta::where('questao_id', $questaoID)->first();
+                $alunoResposta = AlunoResposta::where([
+                    ['questao_id', $questaoID],
+                    ['user_id', $usuario->id]
+                ])->first();
                 //Não existe resposta salva no BD ainda.
                 if(empty($alunoResposta)) {
                     $resposta = new AlunoResposta;

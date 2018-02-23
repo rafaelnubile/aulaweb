@@ -13,17 +13,17 @@
                     <div class="cursoStatus">                  
                         
                         <h5>Percentual de aulas assistidas: {{$curso->dadosAulasAssistidas["percentualAulasAssistidas"]}}% | Nota do aluno: {{$curso->calcularNota($user)}} 
-                            @if($user->aprovado($curso))
-                                <small>(APROVADO)</small>
+                            @if($curso->aprovado->aprovado)
+                                <small> | (APROVADO)</small>
                             @else
-                                <small>(INCOMPLETO)</small>
+                                <small> | (NÃO APROVADO)</small>
                             @endif
                         </h5>
                         
                         
 
-                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Ver relatório</button>
-                        <div id="demo" class="collapse">
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{$curso->id}}">Ver relatório</button>
+                        <div id="{{$curso->id}}" class="collapse">
 
                             @foreach($curso->dadosAulasAssistidas["unidades"] as $nomeUnidade => $aulas)
                             <h3>{{$nomeUnidade}}</h3>

@@ -73,6 +73,9 @@ class Curso extends Model
             $query->where('publicado', '=', true);
         }]);
        $numeroDeExerciciosPublicados = count($this->exercicios);
+       if ($numeroDeExerciciosPublicados == 0) {
+            return $numeroDeExerciciosPublicados == 1;
+       }
 
        foreach($this->exercicios as $exercicio) {
             $notaBD = Nota::where([

@@ -64,6 +64,7 @@ class User extends Authenticatable
             foreach($unidade->aulas as $aula) {
                 $numeroAulasDoCurso++;
                 $alunoAula = AlunoAula::where([
+                    ['user_id', $this->id],
                     ['aula_id', $aula->id]
                 ])->first();
                 if($alunoAula->assistida) {
@@ -106,7 +107,7 @@ class User extends Authenticatable
         if (($curso->numeroDeAulas() == $this->numeroDeAulasAssistidas($curso)) && 
             ($curso->calcularNota($this) >= 70)) {
                 $aprovado = true;
-        }
+        }        
         return $aprovado;
     }
 

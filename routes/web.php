@@ -19,7 +19,6 @@ Route::get('/aula/{aula}', 'AulaController@index');
 Route::get('/aulaAssistida/{aula}', 'AulaController@assistida');
 
 // Rotas dos exercícios
-Route::get('/exercicio/teste', 'ExercicioController@teste');
 Route::get('/exercicio/{exercicio}', 'ExercicioController@index');
 Route::post('/exercicio/{exercicio}', 'ExercicioController@salvarExercicio');
 
