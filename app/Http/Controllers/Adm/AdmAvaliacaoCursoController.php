@@ -11,14 +11,17 @@ class AdmAvaliacaoCursoController extends AdmController
     {
     	$curso->load('usuarioCurso');
     	$notas = [];
+
     	foreach($curso->usuarioCurso as $info){
-    		array_push($notas, $info->avaliacao);
+    		if($info->avaliacao != null){
+    			array_push($notas, $info->avaliacao);
+    		}
     	}
+
     	$somaDasNotas = 0;
     	foreach ($notas as $nota) {
     		$somaDasNotas += $nota;
-    	}
-    	
+    	}    	
 
     	if($somaDasNotas > 0){
     		$mediaDasNotas = $somaDasNotas / count($notas);
