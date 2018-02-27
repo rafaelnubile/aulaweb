@@ -144,6 +144,9 @@ class CursosController extends Controller
     	return redirect('/home');
     }
 
+
+
+
     public function avaliar(SalvarAvaliacao $request, Curso $curso)
     {
         $usuario = Auth::user();
@@ -164,6 +167,7 @@ class CursosController extends Controller
                 flash()->erro('Ops!', 'Ocorreu um erro ao salvar sua avaliação, tente novamente');
             }
         }
+        
         return back();
     }
 

@@ -9,8 +9,7 @@
 
             <div class="Box meusCursos">
                 <h4>Avaliações do curso</h4>
-                <div class="cursoStatus">
-               
+                <div class="cursoStatus">               
                 
               
                     <table class="table table-striped">
@@ -18,14 +17,13 @@
                             <th>Nota</th>
                             <th>Comentário</th>
                         </tr>
-                        @foreach($curso->avaliacaoCurso as $avaliacao)
+                        @foreach($curso->usuarioCurso as $usuariocurso)
                         <tr>
-                            <td>{{$avaliacao->nota}}</td>
-                            <td>{{$avaliacao->comentario}}</td>                       
+                            <td>{{$usuariocurso->avaliacao}}</td>
+                            <td>{{$usuariocurso->comentario}}</td>                       
                         </tr>
                         @endforeach
-                    </table>
-                
+                    </table>               
 
                     
                 </div>

@@ -45,20 +45,12 @@ class Curso extends Model
         return $this->hasManyThrough('App\Aula', 'App\Unidade');
     }
 
-
-    public function mediaAvaliacoes($avaliacoes)
+    public function usuarioCurso()
     {
-        $somaAvaliacoes = 0;
-        if(count($avaliacoes) == 0) {
-            return "Sem Avaliação";
-        }
-        
-        foreach ($avaliacoes as $avaliacao) {
-            $somaAvaliacoes += $avaliacao->nota;
-        }
+        return $this->hasMany('App\UsuarioCurso');
+    }   
 
-        return $somaAvaliacoes / count($avaliacoes);
-    }
+
 
     public function numeroDeAulas() {
         $this->load('aulas');
