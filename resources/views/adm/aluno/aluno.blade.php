@@ -12,7 +12,7 @@
                     <h4><a href='{{url("/adm/curso/$curso->id")}}'>{{$curso->nome}}</a></h4>
                     <div class="cursoStatus">                  
                         
-                        <h5>Percentual de aulas assistidas: {{$curso->dadosAulasAssistidas["percentualAulasAssistidas"]}}% | Nota do aluno: {{$curso->calcularNota($user)}} 
+                        <h5>Percentual de aulas assistidas: {{number_format($curso->dadosAulasAssistidas["percentualAulasAssistidas"], 2)}}% | Nota do aluno: {{$curso->calcularNota($user)}} 
                             @if($curso->aprovado->aprovado)
                                 <small> | (APROVADO)</small>
                             @else
