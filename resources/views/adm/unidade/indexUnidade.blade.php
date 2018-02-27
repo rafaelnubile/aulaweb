@@ -176,9 +176,7 @@
                 </div>
             </div>
 
-            <div class="Box avisoBox">
-                <h4>Arquivos</h4>          
-            </div>     
+                
         </div>
     </div>    
 </div>
