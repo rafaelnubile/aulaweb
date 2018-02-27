@@ -18,8 +18,13 @@ class AdmAvaliacaoCursoController extends AdmController
     	foreach ($notas as $nota) {
     		$somaDasNotas += $nota;
     	}
-    	$somaDasNotas;
-    	$mediaDasNotas = $somaDasNotas / count($notas);
+    	
+
+    	if($somaDasNotas > 0){
+    		$mediaDasNotas = $somaDasNotas / count($notas);
+    	} else {
+    		$mediaDasNotas = "O curso ainda não foi avaliado.";
+    	}
 
 
         $curso->mediaDasAvaliacoes = $mediaDasNotas;              
