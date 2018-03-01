@@ -14,27 +14,29 @@
 				
 
 				@foreach($unidade->aulas as $index=>$aula)
-					<a href="/aula/{{$aula->id}}">
-						<div class="indiceAula">	
-							<div class="row">
-								<div class="col-xs-2 npr">
-									@if($aula->assistida)
-									<div class="icon visto">
-										<h1><i class="fa fa-check" aria-hidden="true"></i></h1>
-									</div>
-									@else
-										<div class="icon">
-											<h1><i class="fa fa-play" aria-hidden="true"></i></h1>
+					@if($aula->publicada)
+						<a href="/aula/{{$aula->id}}">
+							<div class="indiceAula">	
+								<div class="row">
+									<div class="col-xs-2 npr">
+										@if($aula->assistida)
+										<div class="icon visto">
+											<h1><i class="fa fa-check" aria-hidden="true"></i></h1>
 										</div>
-									@endif
-								</div>
-								<div class="col-xs-10">
-									<h5>Aula {{$index+1}}</h5>
-									<H4>{{$aula->nome}}</H4>
-								</div>
-							</div>	
-						</div>
-					</a>
+										@else
+											<div class="icon">
+												<h1><i class="fa fa-play" aria-hidden="true"></i></h1>
+											</div>
+										@endif
+									</div>
+									<div class="col-xs-10">
+										<h5>Aula {{$index+1}}</h5>
+										<H4>{{$aula->nome}}</H4>
+									</div>
+								</div>	
+							</div>
+						</a>
+					@endif
 				@endforeach
 
 
