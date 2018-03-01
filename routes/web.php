@@ -29,6 +29,7 @@ Route::get('/adm', 'Adm\AdmController@index');
 	Route::get('/adm/aviso', 'Adm\AdmController@novoAviso');
 	Route::post('/adm/aviso', 'Adm\AdmController@salvarAviso');
 	Route::get('/adm/aviso/{id}', 'Adm\AdmController@deletarAviso');
+	
 
 	// ******** Rotas ADM CURSO ********************///
 	Route::get('/adm/curso/{curso}', 'Adm\AdmCursoController@indexCurso');
@@ -43,7 +44,8 @@ Route::get('/adm', 'Adm\AdmController@index');
 	// ******** Rotas ADM UNIDADE ********************//
 	Route::get('/adm/unidade/{unidade}', 'Adm\AdmUnidadeController@indexUnidade');
 	Route::post('/adm/{curso}/salvarUnidade', 'Adm\AdmUnidadeController@salvarUnidade');
-	Route::post('/adm/unidade/{unidade}', 'Adm\AdmUnidadeController@atualizarUnidade'); 
+	Route::post('/adm/unidade/{unidade}', 'Adm\AdmUnidadeController@atualizarUnidade');
+
 
 	// ******** Rotas ADM AULA ********************//
 	Route::get('/adm/aula/{aula}', 'Adm\AdmAulaController@indexAula');

@@ -68,9 +68,9 @@ class AulaController extends Controller
         $curso = $aula->unidade->curso;
 
     	$alunoAula = AlunoAula::where([
-		    	['user_id', $usuario->id],
-		    	['aula_id', $aula->id],
-			])->firstOrFail();
+	    	['user_id', $usuario->id],
+	    	['aula_id', $aula->id],
+		])->firstOrFail();
 
     	$alunoAula->assistida = true;
     	$aulaAssistida = $alunoAula->save();

@@ -6,7 +6,7 @@
 <div class="mural">
     <div class="row">
 
-        <div class="col-md-8">            
+        <div class="col-md-8">
 
             <div class="Box meusCursos">
                 <h4>Aulas</h4>

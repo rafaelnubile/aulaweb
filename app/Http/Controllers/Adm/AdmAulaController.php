@@ -9,6 +9,11 @@ use App\Http\Requests\SalvarArquivo;
 use App\Aula;
 use App\Arquivo;
 use App\Unidade;
+use User;
+
+//Tentando arrumar o problema da nova aula
+use App\UsuarioCurso;
+use App\AlunoAula;
 
 class AdmAulaController extends AdmController
 {
@@ -18,10 +23,11 @@ class AdmAulaController extends AdmController
     }
     
     public function indexAula(Aula $aula)
-    {
+    {  
     	$aula->load('unidade.curso', 'arquivos');
     	return view('adm.aula.indexAula', compact('aula'));
     }
+
 
     public function salvarAula(SalvarAula $request, Unidade $unidade)
     {
@@ -32,8 +38,29 @@ class AdmAulaController extends AdmController
     	$aula->publicada = false;
     	$aula->unidade_id = $unidade->id;
     	$aula->save();
+        $aulaId = $aula->id;
+
+        //Tentando salvar uma nova linha AlunoAula para cada aluno
+
+        //Quero saber a qual curso pertence a aula        
+        $curso_id = $aula->unidade->curso->id;
+
+        //Com o ID do curso, quero todos os alunos que estão matriculados nele
+        $alunosNoCurso = UsuarioCurso::where('curso_id', $curso_id)->get();
+
+        //Para cada aluno eu quero criar uma entrada em AlunoAula com o ID do aluno e o ID da aula criada
+        foreach($alunosNoCurso as $alunoNoCurso){
+            $aluno_aula = new AlunoAula();
+            $aluno_aula->user_id = $alunoNoCurso->user_id;
+            $aluno_aula->aula_id = $aulaId;
+            $aluno_aula->assistida = false;
+            $aluno_aula->save();
+        }
+
     	return back();
     }
+
+
 
     public function atualizarAula(SalvarAula $request, Aula $aula)
     {

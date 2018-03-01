@@ -18,4 +18,11 @@ class Aula extends Model
     	return $this->hasMany(Arquivo::Class);
     }
 
+    public function usuarios()
+    {
+    	return $this->belongsToMany(User::class, 'aluno_aula', 'user_id', 'aula_id');
+    }
+
+
+
 }

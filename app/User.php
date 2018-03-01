@@ -48,6 +48,13 @@ class User extends Authenticatable
         return $this->hasMany(Nota::class);
     }
 
+    public function aulas()
+    {
+        return $this->belongsToMany(Aula::class, 'aluno_aula', 'user_id', 'aula_id');
+    }
+
+
+
     public function dadosAulasAssistidas(Curso $curso) {
         $dadosAulasAssistidas = [
             "numeroAulasAssistidas" => 0,
