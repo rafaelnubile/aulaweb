@@ -78,8 +78,8 @@
                     <div class="col-md-4">
                         <a href="/curso/{{$curso->id}}">
                             <div class="quadroIndex">               
-                                <h2> {{ $curso->nome }} </h2>
-                                <p> {{ $curso->professor }} </p>
+                                <h2>{{ $curso->nome }}</h2>
+                                <p>{{ $curso->professor }}</p>
                             </div>
                         </a>
                     </div>
